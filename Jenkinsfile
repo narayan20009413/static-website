@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-  }
+       DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    }
     stages {
         stage('Clone repository') {
             steps {
@@ -24,4 +24,5 @@ pipeline {
                 sh 'docker push narayan94/test:v1'
             }
         }
+    }
 }
