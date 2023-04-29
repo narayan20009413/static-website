@@ -11,8 +11,6 @@ spec:
     metadata:
       labels:
         app: static-website
-      annotations:
-        deployment.timestamp: "{{ .Timestamp }}"
     spec:
       containers:
       - name: static-website
