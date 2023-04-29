@@ -44,7 +44,9 @@ pipeline {
         stage('Deploy to Image to EKS cluster') {
             steps {
                   script {
-                    sh "kubectl apply -f static-web-deploy.yaml"
+                    sh "kubectl create ns web-ns"
+                    sh "kubectl -n web-ns apply -f static-web-deploy.yaml"
+                    sh "kubectl -n web get svc"
                 }
             }
         }
