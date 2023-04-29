@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t test:v1 .'
+                sh 'docker build -t narayan94/test:v1 .'
             }
         }
         stage('Login') {
