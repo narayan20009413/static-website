@@ -43,9 +43,11 @@ pipeline {
 
         stage('Deploy to Image to EKS cluster') {
             steps {
-                  script {
+                withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
+                 script {
                     sh "kubectl -n web-ns apply -f static-web-deploy.yaml"
                     sh "kubectl -n web get svc"
+                }
                 }
             }
         }
