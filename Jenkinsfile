@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t narayan94/test:v1 .'
+                sh 'docker build -t narayan94/static-website:v1 .'
             }
         }
 
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Push image to Dockerhub reposiory') {
             steps {
-                sh 'docker push narayan94/test:v1'
+                sh 'docker push narayan94/static-website:v1'
             }
         }
 
