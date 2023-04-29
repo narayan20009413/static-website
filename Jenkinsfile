@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  }
     stages {
         stage('Clone repository') {
             steps {
@@ -11,5 +14,14 @@ pipeline {
                 sh 'docker build -t test:v1 .'
             }
         }
-    }
+        stage('Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('Push') {
+            steps {
+                sh 'docker push narayan94/test:v1'
+            }
+        }
 }
