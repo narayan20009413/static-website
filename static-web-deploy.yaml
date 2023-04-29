@@ -12,11 +12,11 @@ spec:
       labels:
         app: static-website
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: static-website
         image: static-website:v1
-      imagePullSecrets:
-        - name: regcred
         ports:
         - containerPort: 80
 
