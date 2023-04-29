@@ -16,7 +16,7 @@ spec:
       - name: regcred
       containers:
       - name: static-website
-        image: static-website:v1
+        image: narayan94/static-website:v1
         ports:
         - containerPort: 80
 
