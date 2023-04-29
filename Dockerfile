@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install nginx -y
 
 # Copy your static website files to the container
-COPY ./static-website /var/www/html
+COPY . /var/www/html
 
 # Expose the default HTTP port
 EXPOSE 80
