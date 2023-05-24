@@ -45,6 +45,7 @@ pipeline {
             steps {
                 withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
                  script {
+                    sh "kubectl -n web-ns delete -f static-web-deploy.yaml"
                     sh "kubectl -n web-ns apply -f static-web-deploy.yaml"
                     sh "kubectl -n web-ns get svc"
                 }
